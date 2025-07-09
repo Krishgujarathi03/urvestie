@@ -35,11 +35,13 @@ const How = () => {
 
   return (
     <div className="py-12 px-4 md:px-16 bg-[#FFFAE5]">
-      <h2 className="text-[52px] text-center mb-2">How Urvestie Works</h2>
-      <p className="text-center text-[32px]">
+      <h2 className="text-3xl sm:text-4xl md:text-[52px] text-center mb-2">
+        How Urvestie Works
+      </h2>
+      <p className="text-center text-lg sm:text-xl md:text-[32px]">
         Your Fashion Concierge, Simplified.
       </p>
-      <p className="text-center text-[32px] font-medium mb-16">
+      <p className="text-center text-lg sm:text-xl md:text-[32px] font-medium mb-16">
         From Click to Closet — Styling Made Simple in 3 steps
       </p>
 
@@ -47,31 +49,36 @@ const How = () => {
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`${step.bg} rounded-xl shadow-md flex flex-col items-center text-center`}
-            style={{ width: "390px", height: "463px" }} // Exact size
+            className={`${step.bg} rounded-xl shadow-md flex flex-col items-center text-center mx-auto`}
+            style={{
+              width: "100%",
+              maxWidth: "390px",
+              height: "auto",
+            }}
           >
             <img
               src={img5}
               alt=""
-              style={{ height: "120px", width: "130px" }}
+              className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[130px] md:h-[120px] mt-4"
             />
             <div
-              className={`${step.lightBg} flex justify-center mb-4`}
-              style={{ height: "199px", width: "362px" }}
+              className={`${step.lightBg} flex justify-center items-center mb-4 w-full`}
+              style={{
+                maxWidth: "362px",
+                height: "auto",
+                minHeight: "150px",
+              }}
             >
               <img
                 src={step.image}
                 alt={`Step ${index + 1}`}
-                className="mb-4"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  objectFit: "contain",
-                }} // Exact image size
+                className="w-[200px] h-[200px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] object-contain"
               />
             </div>
-            <h3 className="text-lg text-[#000000] mb-2 px-4">{step.title}</h3>
-            <p className="text-[15px] text-[#000000] px-4">
+            <h3 className="text-base sm:text-lg text-[#000000] mb-2 px-4">
+              {step.title}
+            </h3>
+            <p className="text-sm sm:text-base text-[#000000] px-4 mb-4">
               {step.description}
             </p>
           </div>

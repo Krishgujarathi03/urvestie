@@ -41,17 +41,16 @@ const Evaluate = () => {
   const rows = chunkArray(images, 5);
 
   return (
-    <div className="bg-black relative w-full h-[1018px] overflow-hidden px-[40px]">
+    <div className="bg-black relative w-full h-[600px] md:h-[1018px] overflow-hidden px-4 md:px-[40px]">
       {/* Image Rows */}
-      <div className="flex flex-col gap-4 h-full pt-10">
+      <div className="flex flex-col gap-2 md:gap-4 h-full pt-6 md:pt-10">
         {rows.map((rowImages, rowIndex) => {
-          // repeat images 3 times for smooth looping
           const repeatedImages = [...rowImages, ...rowImages, ...rowImages];
 
           return (
             <div
               key={rowIndex}
-              className="relative w-full h-[296px] overflow-hidden"
+              className="relative w-full h-[150px] md:h-[296px] overflow-hidden"
             >
               <div
                 className={`flex gap-2 min-w-max absolute top-0 ${
@@ -62,7 +61,7 @@ const Evaluate = () => {
                   <img
                     key={idx}
                     src={src}
-                    className="w-[320px] h-[296px] object-cover brightness-50 opacity-60 rounded-lg"
+                    className="w-[180px] h-[150px] md:w-[320px] md:h-[296px] object-cover brightness-50 opacity-60 rounded-lg"
                     alt={`style-${rowIndex}-${idx}`}
                   />
                 ))}
@@ -73,11 +72,11 @@ const Evaluate = () => {
       </div>
 
       {/* Text Overlay */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col justify-center pl-20">
-        <h2 className="text-white text-[60px] mb-4 leading-tight">
+      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col justify-center px-4 md:pl-20">
+        <h2 className="text-white text-[28px] sm:text-[36px] md:text-[60px] mb-3 md:mb-4 leading-tight">
           Ready to Elevate your Style?
         </h2>
-        <p className="text-white text-[32px] max-w-2xl">
+        <p className="text-white text-[16px] sm:text-[20px] md:text-[32px] max-w-full md:max-w-2xl">
           Say goodbye to styling stress — get personalized outfits delivered to
           your inbox every month, curated to match your lifestyle and goals.
         </p>

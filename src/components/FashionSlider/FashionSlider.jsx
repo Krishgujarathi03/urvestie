@@ -37,12 +37,11 @@ const FashionSlider = () => {
   ];
 
   return (
-    <div className="bg-white w-[1385px] h-[738px] mx-auto relative">
+    <div className="bg-white w-full max-w-[1385px] h-auto md:h-[738px] mx-auto relative px-4">
       {/* Custom arrows */}
-      {/* Always render both buttons */}
       <button
         ref={prevRef}
-        className={`custom-swiper-button-prev absolute top-1/2 left-4 z-10 text-[#000000] text-[35px] ${
+        className={`custom-swiper-button-prev absolute top-1/2 left-4 z-10 text-[#000000] text-[28px] md:text-[35px] ${
           activeIndex === 0 ? "hidden" : ""
         }`}
       >
@@ -51,7 +50,7 @@ const FashionSlider = () => {
 
       <button
         ref={nextRef}
-        className={`custom-swiper-button-next absolute top-1/2 right-4 z-10 text-[#000000] text-[35px] ${
+        className={`custom-swiper-button-next absolute top-1/2 right-4 z-10 text-[#000000] text-[28px] md:text-[35px] ${
           activeIndex === slides.length - 1 ? "hidden" : ""
         }`}
       >
@@ -59,7 +58,7 @@ const FashionSlider = () => {
       </button>
 
       <Swiper
-        className="w-full h-full border-[3.5px] border-[#1DC3EC] rounded-[5%] px-6"
+        className="w-full h-full border-[3px] md:border-[3.5px] border-[#1DC3EC] rounded-[5%] px-2 md:px-6"
         slidesPerView={1}
         pagination={{ clickable: true }}
         navigation={{
@@ -77,17 +76,22 @@ const FashionSlider = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-6 shadow-md w-full h-full relative">
-              <div className="text-left max-w-[50%]">
-                <h2 className="text-[42px] whitespace-pre-line">
+            <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative">
+              {/* Text Section */}
+              <div className="text-center md:text-left w-full md:max-w-[50%]">
+                <h2 className="text-[28px] sm:text-[34px] md:text-[42px] whitespace-pre-line">
                   {slide.heading}
                 </h2>
-                <p className="text-[32px] mt-4 text-[#000000]">{slide.text}</p>
+                <p className="text-[20px] sm:text-[26px] md:text-[32px] mt-3 text-[#000000]">
+                  {slide.text}
+                </p>
               </div>
+
+              {/* Image Section */}
               <img
                 src={slide.topImg}
                 alt="top"
-                className="w-[756px] h-[738px] object-contain"
+                className="w-[90%] sm:w-[80%] md:w-[756px] h-auto md:h-[738px] object-contain mt-6 md:mt-0"
               />
             </div>
           </SwiperSlide>
