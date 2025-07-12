@@ -4,6 +4,8 @@ import img2 from "/images/how/img2.png";
 import img3 from "/images/how/img3.png";
 import img4 from "/images/how/img4.png";
 import img5 from "/images/how/img5.png";
+import bgimg1 from "/images/bg/img1.jpg";
+import { motion } from "framer-motion";
 
 const How = () => {
   const steps = [
@@ -34,8 +36,20 @@ const How = () => {
   ];
 
   return (
-    <div className="py-12 px-4 md:px-16 bg-[#FFFAE5]">
-      <h2 className="text-3xl sm:text-4xl md:text-[52px] text-center mb-2">
+    <div
+      className="py-12 px-4 md:px-16 bg-[#FFFAE5]"
+      style={{
+        backgroundImage: `url(${bgimg1})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        maskImage:
+          "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
+      }}
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-[52px] text-center mb-8">
         How Urvestie Works
       </h2>
       <p className="text-center text-lg sm:text-xl md:text-[32px]">
@@ -45,45 +59,52 @@ const How = () => {
         From Click to Closet — Styling Made Simple in 3 steps
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className={`${step.bg} rounded-xl shadow-md flex flex-col items-center text-center mx-auto`}
-            style={{
-              width: "100%",
-              maxWidth: "390px",
-              height: "auto",
-            }}
-          >
-            <img
-              src={img5}
-              alt=""
-              className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[130px] md:h-[120px] mt-4"
-            />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+          {steps.map((step, index) => (
             <div
-              className={`${step.lightBg} flex justify-center items-center mb-4 w-full`}
+              key={index}
+              className={`${step.bg} rounded-xl shadow-md flex flex-col items-center text-center mx-auto`}
               style={{
-                maxWidth: "362px",
+                width: "100%",
+                maxWidth: "390px",
                 height: "auto",
-                minHeight: "150px",
               }}
             >
               <img
-                src={step.image}
-                alt={`Step ${index + 1}`}
-                className="w-[200px] h-[200px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] object-contain"
+                src={img5}
+                alt=""
+                className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[130px] md:h-[120px] mt-4"
               />
+              <div
+                className={`${step.lightBg} flex justify-center items-center mb-4 w-full`}
+                style={{
+                  maxWidth: "362px",
+                  height: "auto",
+                  minHeight: "150px",
+                }}
+              >
+                <img
+                  src={step.image}
+                  alt={`Step ${index + 1}`}
+                  className="w-[200px] h-[200px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] object-contain"
+                />
+              </div>
+              <h3 className="text-base sm:text-lg text-[#000000] mb-2 px-4">
+                {step.title}
+              </h3>
+              <p className="text-sm sm:text-base text-[#000000] px-4 mb-4">
+                {step.description}
+              </p>
             </div>
-            <h3 className="text-base sm:text-lg text-[#000000] mb-2 px-4">
-              {step.title}
-            </h3>
-            <p className="text-sm sm:text-base text-[#000000] px-4 mb-4">
-              {step.description}
-            </p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

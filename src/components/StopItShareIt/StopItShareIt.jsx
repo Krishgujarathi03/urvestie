@@ -13,7 +13,7 @@ const StopItShareIt = () => {
     <section className="relative bg-black text-white py-12 md:py-16 overflow-hidden">
       {/* Centered Text */}
       <div className="w-full px-4 md:px-6 z-10 relative">
-        <h2 className="text-center mb-4">
+        <h2 className="text-center mb-8">
           <span className="text-3xl sm:text-4xl md:text-[55px]">
             Spot It . Share It . Style It .
           </span>

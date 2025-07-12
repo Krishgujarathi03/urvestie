@@ -13,6 +13,8 @@ import img12 from "/images/evaluate/img12.jpg";
 import img13 from "/images/evaluate/img13.jpg";
 import img14 from "/images/evaluate/img14.jpg";
 import img15 from "/images/evaluate/img15.jpg";
+import GlowAndGo from "../GlowAndGo/GlowAndGo";
+import { motion } from "framer-motion";
 
 const images = [
   img1,
@@ -41,47 +43,77 @@ const Evaluate = () => {
   const rows = chunkArray(images, 5);
 
   return (
-    <div className="bg-black relative w-full h-[600px] md:h-[1018px] overflow-hidden px-4 md:px-[40px]">
-      {/* Image Rows */}
-      <div className="flex flex-col gap-2 md:gap-4 h-full pt-6 md:pt-10">
-        {rows.map((rowImages, rowIndex) => {
-          const repeatedImages = [...rowImages, ...rowImages, ...rowImages];
+    <>
+      <div className="bg-black relative w-full h-[600px] md:h-[1018px] overflow-hidden px-4 md:px-[40px]">
+        {/* Image Rows */}
+        <div className="flex flex-col gap-2 md:gap-4 h-full pt-6 md:pt-10">
+          {rows.map((rowImages, rowIndex) => {
+            const repeatedImages = [...rowImages, ...rowImages, ...rowImages];
 
-          return (
-            <div
-              key={rowIndex}
-              className="relative w-full h-[150px] md:h-[296px] overflow-hidden"
-            >
+            return (
               <div
-                className={`flex gap-2 min-w-max absolute top-0 ${
-                  rowIndex % 2 === 0 ? "marquee-left" : "marquee-right"
-                }`}
+                key={rowIndex}
+                className="relative w-full h-[150px] md:h-[296px] overflow-hidden"
               >
-                {repeatedImages.map((src, idx) => (
-                  <img
-                    key={idx}
-                    src={src}
-                    className="w-[180px] h-[150px] md:w-[320px] md:h-[296px] object-cover brightness-50 opacity-60 rounded-lg"
-                    alt={`style-${rowIndex}-${idx}`}
-                  />
-                ))}
+                <div
+                  className={`flex gap-2 min-w-max absolute top-0 ${
+                    rowIndex % 2 === 0 ? "marquee-left" : "marquee-right"
+                  }`}
+                >
+                  {repeatedImages.map((src, idx) => (
+                    <img
+                      key={idx}
+                      src={src}
+                      className="w-[180px] h-[150px] md:w-[320px] md:h-[296px] object-cover brightness-50 opacity-60 rounded-lg"
+                      alt={`style-${rowIndex}-${idx}`}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
 
-      {/* Text Overlay */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col justify-center px-4 md:pl-20">
-        <h2 className="text-white text-[28px] sm:text-[36px] md:text-[60px] mb-3 md:mb-4 leading-tight">
-          Ready to Elevate your Style?
-        </h2>
-        <p className="text-white text-[16px] sm:text-[20px] md:text-[32px] max-w-full md:max-w-2xl">
-          Say goodbye to styling stress — get personalized outfits delivered to
-          your inbox every month, curated to match your lifestyle and goals.
-        </p>
+        {/* Text Overlay */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col justify-center px-4 md:pl-20">
+          <h2 className="text-white text-[28px] sm:text-[36px] md:text-[60px] mb-3 md:mb-4 leading-tight">
+            Ready to Elevate your Style?
+          </h2>
+          <p className="text-white text-[16px] sm:text-[20px] md:text-[32px] max-w-full md:max-w-2xl">
+            Say goodbye to styling stress — get personalized outfits delivered
+            to your inbox every month, curated to match your lifestyle and
+            goals.
+          </p>
+        </div>
+
+        {/* Glow & Go Card */}
+
+        {/* For desktop: floating to the right */}
+        <div className="hidden md:block absolute top-1/2 right-24 transform -translate-y-1/2 z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ amount: 0.5 }}
+            className="w-[550px] h-[758px]"
+          >
+            <GlowAndGo />
+          </motion.div>
+        </div>
       </div>
-    </div>
+      {/* For mobile: stacked below text */}
+      <div className="md:hidden my-4 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ amount: 0.5 }}
+          className="w-full max-w-[400px]"
+        >
+          <GlowAndGo />
+        </motion.div>
+      </div>
+    </>
   );
 };
 

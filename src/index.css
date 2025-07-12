@@ -39,3 +39,13 @@ button {
 .marquee-right {
   animation: marquee-right 10s linear infinite;
 }
+
+.custom-arrow::after {
+  color: black !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: black;
+  font-size: 24px;
+}

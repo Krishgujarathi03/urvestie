@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
+import bgimg1 from "/images/bg/img2.jpg";
 
 const TopStylists = () => {
   const stylists = [
@@ -67,71 +68,93 @@ const TopStylists = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-12 px-4">
-      <h2 className="text-[52px] font-bold text-center mb-2 max-md:text-[32px]">
-        Meet Our Top Stylists
-      </h2>
-      <p className="text-[32px] text-center text-[#000000] mb-8 max-md:text-[18px]">
-        Helping you dress better, effortlessly.
-      </p>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        pagination={{ clickable: true }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
+    <div
+      className="w-full mt-16"
+      style={{
+        backgroundImage: `url(${bgimg1})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        maskImage:
+          "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
+      }}
+    >
+      <div
+        className="w-full md:h-[1000px] flex bg-center h-[750px]"
+        style={{
+          backgroundImage: window.innerWidth >= 768 ? `url(${img7})` : "none",
+        }}
       >
-        {stylists.map((stylist, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className={`relative mx-auto flex bg-no-repeat bg-center max-md:bg-none ${
-                // desktop styles
-                "w-[850px] h-[527px] bg-[length:1060px_980px]"
-              } max-md:flex-col max-md:w-full max-md:h-auto`}
-              style={{
-                backgroundImage:
-                  window.innerWidth >= 768 ? `url(${stylist.bg})` : "none",
-              }}
-            >
-              {/* Left (text side of book) */}
-              <div className="w-1/2 max-md:w-full px-6 py-2 flex flex-col justify-center">
-                <h3 className="text-[36px] text-center leading-tight max-md:text-[24px]">
-                  {stylist.name}
-                </h3>
-                <p className="text-[20px] text-center mb-5 max-md:text-[16px]">
-                  {stylist.role}
-                </p>
-                <p className="text-[18px] mb-1 max-md:text-[14px]">
-                  <u className="font-abel">Tags:</u> {stylist.tags}
-                </p>
-                <p className="text-[18px] mb-1 max-md:text-[14px]">
-                  <u className="font-abel">Specialties:</u>{" "}
-                  {stylist.specialties}
-                </p>
-                <p className="text-[18px] mb-1 max-md:text-[14px]">
-                  <u className="font-abel">Rating:</u> {stylist.rating} ⭐
-                </p>
-                <p className="text-[18px] mb-2 max-md:text-[14px]">
-                  <u className="font-abel">Sessions Available:</u>{" "}
-                  {stylist.sessions}
-                </p>
-                <p className="text-[20px] italic text-center max-md:text-[16px]">
-                  {stylist.quote}
-                </p>
-              </div>
+        <div className="w-full max-w-5xl mx-auto py-12 px-4">
+          <h2 className="text-[52px] font-bold text-center mb-2 max-md:text-[32px]">
+            Meet Our Top Stylists
+          </h2>
+          <p className="text-[32px] text-center text-[#000000] mb-8 max-md:text-[18px]">
+            Helping you dress better, effortlessly.
+          </p>
 
-              {/* Right (stylist image side of book) */}
-              <div className="w-1/2 max-md:w-full flex items-center justify-center mt-4 max-md:mt-2">
-                <img
-                  src={stylist.image}
-                  alt={stylist.name}
-                  className="w-[315px] h-[350px] max-md:w-[200px] max-md:h-[240px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            pagination={{ clickable: true }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+          >
+            {stylists.map((stylist, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className={`relative mx-auto flex bg-no-repeat bg-center max-md:bg-none ${
+                    // desktop styles
+                    "w-[850px] h-[527px] bg-[length:1060px_980px]"
+                  } max-md:flex-col max-md:w-full max-md:h-auto`}
+                  style={{
+                    backgroundImage:
+                      window.innerWidth >= 768 ? `url(${stylist.bg})` : "none",
+                  }}
+                >
+                  {/* Left (text side of book) */}
+                  <div className="w-1/2 max-md:w-full px-6 py-2 flex flex-col justify-center">
+                    <h3 className="text-[36px] text-center leading-tight max-md:text-[24px]">
+                      {stylist.name}
+                    </h3>
+                    <p className="text-[20px] text-center mb-5 max-md:text-[16px]">
+                      {stylist.role}
+                    </p>
+                    <p className="text-[18px] mb-1 max-md:text-[14px]">
+                      <u className="font-abel">Tags:</u> {stylist.tags}
+                    </p>
+                    <p className="text-[18px] mb-1 max-md:text-[14px]">
+                      <u className="font-abel">Specialties:</u>{" "}
+                      {stylist.specialties}
+                    </p>
+                    <p className="text-[18px] mb-1 max-md:text-[14px]">
+                      <u className="font-abel">Rating:</u> {stylist.rating} ⭐
+                    </p>
+                    <p className="text-[18px] mb-2 max-md:text-[14px]">
+                      <u className="font-abel">Sessions Available:</u>{" "}
+                      {stylist.sessions}
+                    </p>
+                    <p className="text-[20px] italic text-center max-md:text-[16px]">
+                      {stylist.quote}
+                    </p>
+                  </div>
+
+                  {/* Right (stylist image side of book) */}
+                  <div className="w-1/2 max-md:w-full flex items-center justify-center mt-4 max-md:mt-2">
+                    <img
+                      src={stylist.image}
+                      alt={stylist.name}
+                      className="w-[315px] h-[350px] max-md:w-[200px] max-md:h-[240px]"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 };
