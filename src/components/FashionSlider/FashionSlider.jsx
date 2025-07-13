@@ -8,6 +8,7 @@ import img1 from "/images/Big/img1.png";
 import img2 from "/images/Big/img2.jpg";
 import img3 from "/images/Big/img3.png";
 import img4 from "/images/Big/img4.png";
+import { motion } from "framer-motion";
 
 const FashionSlider = () => {
   const prevRef = useRef(null);
@@ -18,6 +19,7 @@ const FashionSlider = () => {
       heading: "It’s Not Just Fashion\nIt’s Influence",
       text: "When you wear a look styled by Urvestie, you don’t follow trends — you lead them. Every piece reflects confidence, class, and character.",
       topImg: img1,
+      isFirst: true,
     },
     {
       heading: "Designed for India’s Power Women",
@@ -76,9 +78,20 @@ const FashionSlider = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative">
+            <motion.div
+              key={activeIndex} // triggers re-animation on index change
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 1.3 }}
+              className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative"
+            >
               {/* Text Section */}
-              <div className="text-center md:text-left w-full md:max-w-[50%]">
+              <div
+                className={`text-center md:text-left w-full md:w-[${
+                  slide.isFirst ? "50" : "60"
+                }%]`}
+              >
                 <h2 className="text-[28px] sm:text-[34px] md:text-[42px] whitespace-pre-line">
                   {slide.heading}
                 </h2>
@@ -88,12 +101,18 @@ const FashionSlider = () => {
               </div>
 
               {/* Image Section */}
-              <img
-                src={slide.topImg}
-                alt="top"
-                className="w-[90%] sm:w-[80%] md:w-[756px] h-auto md:h-[738px] object-contain mt-6 md:mt-0"
-              />
-            </div>
+              <div
+                className={`w-full md:w-[${
+                  slide.isFirst ? "50" : "40"
+                }%] flex justify-center mt-6 md:mt-0`}
+              >
+                <img
+                  src={slide.topImg}
+                  alt="top"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
