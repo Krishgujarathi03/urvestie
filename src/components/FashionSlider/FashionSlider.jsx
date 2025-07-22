@@ -25,16 +25,19 @@ const FashionSlider = () => {
       heading: "Designed for India’s Power Women",
       text: "Whether you're a founder, creator, or corporate force — your life is complex. Your wardrobe should keep up. We personalize fashion around your real routines.",
       topImg: img4,
+      isFirst: false,
     },
     {
       heading: "Every Look Says “She’s Somebody.”",
       text: "You’re not just dressing for today — you’re creating a digital-first presence. Whether it’s reels, meetings, brunches or boardrooms — your outfits will speak before you do.",
       topImg: img3,
+      isFirst: false,
     },
     {
       heading: "Stylists + AI, Working for You.",
       text: "Our proprietary tech + expert stylists work together to give you unmatched clarity in clothing. No guesswork, no confusion — just the right look, every time.",
       topImg: img2,
+      isFirst: false,
     },
   ];
 
@@ -60,7 +63,7 @@ const FashionSlider = () => {
       </button>
 
       <Swiper
-        className="w-full h-full border-[3px] md:border-[3.5px] border-[#1DC3EC] rounded-[5%] px-2 md:px-6"
+        className="w-full h-[80%] border-[3px] md:border-[3.5px] border-[#1DC3EC] rounded-[5%] px-2 md:px-6"
         slidesPerView={1}
         pagination={{ clickable: true }}
         navigation={{
@@ -76,45 +79,43 @@ const FashionSlider = () => {
         }}
         modules={[Navigation, Pagination]}
       >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <motion.div
-              key={activeIndex} // triggers re-animation on index change
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 1.3 }}
-              className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative"
-            >
-              {/* Text Section */}
-              <div
-                className={`text-center md:text-left w-full md:w-[${
-                  slide.isFirst ? "50" : "60"
-                }%]`}
+        {slides.map((slide, index) => {
+          const textColClass = slide.isFirst ? "md:w-[50%]" : "md:w-[65%]";
+          const imgColClass = slide.isFirst ? "md:w-[50%]" : "md:w-[35%]";
+          return (
+            <SwiperSlide key={index}>
+              <motion.div
+                key={activeIndex} // triggers re-animation on index change
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 1.3 }}
+                className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative"
               >
-                <h2 className="text-[28px] sm:text-[34px] md:text-[42px] whitespace-pre-line">
-                  {slide.heading}
-                </h2>
-                <p className="text-[20px] sm:text-[26px] md:text-[32px] mt-3 text-[#000000]">
-                  {slide.text}
-                </p>
-              </div>
+                {/* Text Section */}
+                <div
+                  className={`text-center md:text-left w-full ${textColClass}`}
+                >
+                  <h2 className="text-[28px] sm:text-[34px] md:text-[42px] whitespace-pre-line">
+                    {slide.heading}
+                  </h2>
+                  <p className="text-[20px] sm:text-[26px] md:text-[32px] mt-3 text-[#000000]">
+                    {slide.text}
+                  </p>
+                </div>
 
-              {/* Image Section */}
-              <div
-                className={`w-full md:w-[${
-                  slide.isFirst ? "50" : "40"
-                }%] flex justify-center mt-6 md:mt-0`}
-              >
-                <img
-                  src={slide.topImg}
-                  alt="top"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </motion.div>
-          </SwiperSlide>
-        ))}
+                {/* Image Section */}
+                <div className={`w-full ${imgColClass}`}>
+                  <img
+                    src={slide.topImg}
+                    alt="top"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

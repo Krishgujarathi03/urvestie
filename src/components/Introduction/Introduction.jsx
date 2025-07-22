@@ -37,17 +37,48 @@ const Introduction = () => {
 
       {/* Image */}
 
+      {/* Show only on laptops/desktops (md and above) */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ amount: 0.5 }}
-        className="md:w-[550px] md:h-[758px]"
+        style={{
+          top: "-100px",
+          right: "250px",
+          width: "850px",
+          height: "618px",
+          position: "relative",
+          zIndex: 100,
+        }}
+        className="hidden md:block"
       >
         <img
           src="/images/img3.png"
           alt="Model wearing outfit"
-          className="w-full sm:w-[90%] md:w-[977px] h-auto md:h-[733px] object-contain"
+          className="
+      md:w-[1100px] md:h-[850px] md:max-w-none
+      mx-auto
+    "
+          style={{
+            objectFit: "contain",
+            overflow: "hidden",
+          }}
+        />
+      </motion.div>
+
+      {/* Show only on mobile (below md) */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }}
+        className="block md:hidden w-full max-w-[350px] mx-auto"
+      >
+        <img
+          src="/images/img3.png"
+          alt="Model wearing outfit"
+          className="w-full h-auto object-contain overflow-hidden"
         />
       </motion.div>
     </section>

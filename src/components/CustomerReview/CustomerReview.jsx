@@ -40,14 +40,14 @@ const CustomerReview = () => {
         {reviews.map((item, idx) => (
           <div
             key={idx}
-            className="px-4 py-6 sm:px-6 sm:py-8 text-center space-y-3 sm:space-y-4"
+            className="px-4 py-6 sm:px-6 sm:py-8 space-y-3 sm:space-y-4"
           >
             <img
               src={item.image}
               alt={item.name}
               className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] rounded-full mx-auto object-cover"
             />
-            <p className="font-medium text-[20px] sm:text-[28px]">
+            <p className="font-medium text-center text-[20px] sm:text-[28px]">
               {item.name}, {item.age}
             </p>
             <p className="text-white text-[18px] sm:text-[28px] leading-relaxed">

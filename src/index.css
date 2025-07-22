@@ -7,6 +7,9 @@
 * {
   font-family: "Abril Fatface";
 }
+body {
+  overflow-x: hidden;
+}
 
 p,
 ul,

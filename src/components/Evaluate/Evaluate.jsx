@@ -44,7 +44,7 @@ const Evaluate = () => {
 
   return (
     <>
-      <div className="bg-black relative w-full h-[600px] md:h-[1018px] overflow-hidden px-4 md:px-[40px]">
+      <div className="bg-black relative w-full h-[600px] md:h-[858px] overflow-hidden px-4 md:px-[40px] my-10">
         {/* Image Rows */}
         <div className="flex flex-col gap-2 md:gap-4 h-full pt-6 md:pt-10">
           {rows.map((rowImages, rowIndex) => {
@@ -95,7 +95,7 @@ const Evaluate = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ amount: 0.5 }}
-            className="w-[550px] h-[758px]"
+            className="w-[590px] h-[758px]"
           >
             <GlowAndGo />
           </motion.div>

@@ -114,12 +114,17 @@ const TopStylists = () => {
                       window.innerWidth >= 768 ? `url(${stylist.bg})` : "none",
                   }}
                 >
+                  <img
+                    src={img6}
+                    alt="pin"
+                    className="absolute top-[-65px] left-[-120px] w-[284px] h-[284px] z-20 hidden md:block"
+                  />
                   {/* Left (text side of book) */}
                   <div className="w-1/2 max-md:w-full px-6 py-2 flex flex-col justify-center">
-                    <h3 className="text-[36px] text-center leading-tight max-md:text-[24px]">
+                    <h3 className="text-[36px] leading-tight max-md:text-[24px]">
                       {stylist.name}
                     </h3>
-                    <p className="text-[20px] text-center mb-5 max-md:text-[16px]">
+                    <p className="text-[20px] mb-5 max-md:text-[16px]">
                       {stylist.role}
                     </p>
                     <p className="text-[18px] mb-1 max-md:text-[14px]">
@@ -136,7 +141,7 @@ const TopStylists = () => {
                       <u className="font-abel">Sessions Available:</u>{" "}
                       {stylist.sessions}
                     </p>
-                    <p className="text-[20px] italic text-center max-md:text-[16px]">
+                    <p className="text-[20px] italic max-md:text-[16px]">
                       {stylist.quote}
                     </p>
                   </div>
