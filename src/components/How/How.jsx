@@ -49,7 +49,7 @@ const How = () => {
           "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
       }}
     >
-      <h2 className="text-3xl sm:text-4xl md:text-[52px] text-center mb-8">
+      <h2 className="text-3xl sm:text-4xl md:text-[52px] text-center mb-8 md:mt-0 mt-7">
         How Urvestie Works
       </h2>
       <p className="text-center text-lg sm:text-xl md:text-[32px]">
@@ -71,12 +71,7 @@ const How = () => {
               ease: "easeOut",
               delay: index * 0.2,
             }}
-            className={`${step.bg} rounded-xl shadow-md flex flex-col items-center text-center mx-auto relative`} // <-- NOTE 'relative'
-            style={{
-              width: "100%",
-              maxWidth: "390px",
-              height: "auto",
-            }}
+            className={`${step.bg} w-full max-w-[340px] md:max-w-[390px] h-auto rounded-xl shadow-md flex flex-col items-center text-center mx-auto relative`} // <-- NOTE 'relative'
           >
             {/* Small top-left icon */}
             <img

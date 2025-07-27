@@ -44,9 +44,10 @@ const FashionSlider = () => {
   return (
     <div className="bg-white w-full max-w-[1385px] h-auto md:h-[738px] mx-auto relative px-4">
       {/* Custom arrows */}
+
       <button
         ref={prevRef}
-        className={`custom-swiper-button-prev absolute top-1/2 left-4 z-10 text-[#000000] text-[28px] md:text-[35px] ${
+        className={`custom-swiper-button-prev absolute top-1/2 md:top-[40%] left-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
           activeIndex === 0 ? "hidden" : ""
         }`}
       >
@@ -55,7 +56,7 @@ const FashionSlider = () => {
 
       <button
         ref={nextRef}
-        className={`custom-swiper-button-next absolute top-1/2 right-4 z-10 text-[#000000] text-[28px] md:text-[35px] ${
+        className={`custom-swiper-button-next absolute top-1/2 md:top-[40%] right-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
           activeIndex === slides.length - 1 ? "hidden" : ""
         }`}
       >
@@ -90,7 +91,7 @@ const FashionSlider = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 1.3 }}
-                className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full h-full relative"
+                className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-white to-blue-100 rounded-3xl p-4 md:p-6 shadow-md w-full md:h-full h-[650px] relative"
               >
                 {/* Text Section */}
                 <div

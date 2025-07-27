@@ -11,7 +11,7 @@ const images = [img1, img2, img3, img4, img5, img6];
 
 const StopItShareIt = () => {
   return (
-    <section className="relative bg-black text-white py-12 md:py-36 overflow-hidden">
+    <section className="relative bg-black text-white py-20 md:py-36 overflow-hidden">
       {/* Centered Text */}
       <div className="w-full px-4 md:px-6 z-10 relative">
         <h2 className="text-center mb-8">
@@ -19,7 +19,7 @@ const StopItShareIt = () => {
             Spot It . Share It . Style It .
           </span>
         </h2>
-        <p className="text-white text-lg sm:text-xl md:text-[32px] text-center max-w-4xl md:max-w-6xl mx-auto leading-relaxed">
+        <p className="text-white text-[16px] sm:text-xl md:text-[32px] text-center max-w-4xl md:max-w-6xl mx-auto leading-relaxed">
           Runway. Street. Social.
           <br />
           From the latest runway looks to emerging street styles,
@@ -35,19 +35,19 @@ const StopItShareIt = () => {
         <img
           src={img7}
           alt="Star top-left"
-          className="absolute top-[-35%] left-[12%] w-[120px] h-[120px] z-20 pointer-events-none"
+          className="absolute top-[-35%] left-[12%] w-[100px] h-[100px] md:w-[120px] md:h-[120px] z-20 pointer-events-none"
         />
         {/* <--  Icon 2: Top right --> */}
         <img
           src={img7}
           alt="Star top-right"
-          className="absolute top-[-35%] right-[14%] w-[120px] h-[120px] z-20 pointer-events-none"
+          className="absolute top-[-35%] right-[14%] w-[100px] h-[100px] md:w-[120px] md:h-[120px] z-20 pointer-events-none"
         />
         {/* <--  Icon 3: Bottom right --> */}
         <img
           src={img7}
           alt="Star bottom-right"
-          className="absolute bottom-[-35%] right-[30%] w-[120px] h-[120px] z-20 pointer-events-none"
+          className="absolute bottom-[-35%] right-[30%] w-[100px] h-[100px] md:w-[120px] md:h-[120px] z-20 pointer-events-none"
         />
         <div className="w-[70vw] mx-auto overflow-hidden relative">
           {/* Left Blur overlay */}
@@ -55,7 +55,7 @@ const StopItShareIt = () => {
           {/* Right Blur overlay */}
           <div className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-black via-black/70 to-transparent z-10" />
 
-          <div className="flex w-max animate-scroll gap-4 md:gap-6 px-2">
+          <div className="flex w-max animate-scroll gap-4 md:gap-6 px-2 my-2 md:my-0">
             {[...images, ...images].map((src, index) => (
               <img
                 key={index}

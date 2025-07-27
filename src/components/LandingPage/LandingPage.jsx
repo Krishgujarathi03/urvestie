@@ -9,6 +9,7 @@ import CustomerReview from "../CustomerReview/CustomerReview";
 import Footer from "../Footer/Footer";
 import FashionSlider from "../FashionSlider/FashionSlider";
 import Evaluate from "../Evaluate/Evaluate";
+import Faq from "../FAQ/Faq";
 
 const LandingPage = () => {
   return (

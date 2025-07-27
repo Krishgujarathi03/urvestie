@@ -6,6 +6,7 @@ import img4 from "/images/top-stylists/img4.png";
 import img5 from "/images/top-stylists/img5.png";
 import img6 from "/images/top-stylists/img6.png";
 import img7 from "/images/top-stylists/img7.png";
+import img8 from "/images/top-stylists/img8.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -26,6 +27,7 @@ const TopStylists = () => {
       quote: `"Blending comfort with clean lines, Alina builds wardrobes that feel effortless."`,
       image: img1,
       bg: img5,
+      mobile_bg: img8,
     },
     {
       name: "Rhea Malhotra",
@@ -38,6 +40,7 @@ const TopStylists = () => {
            — that’s Rhea’s signature touch."`,
       image: img2,
       bg: img5,
+      mobile_bg: img8,
     },
     {
       name: "Tanya Singh",
@@ -50,6 +53,7 @@ const TopStylists = () => {
       Tanya makes trends wearable and powerful."`,
       image: img3,
       bg: img5,
+      mobile_bg: img8,
     },
   ];
 
@@ -111,7 +115,9 @@ const TopStylists = () => {
                   } max-md:flex-col max-md:w-full max-md:h-auto`}
                   style={{
                     backgroundImage:
-                      window.innerWidth >= 768 ? `url(${stylist.bg})` : "none",
+                      window.innerWidth >= 768
+                        ? `url(${stylist.bg})`
+                        : `url(${stylist.mobile_bg})`,
                   }}
                 >
                   <img
@@ -124,7 +130,7 @@ const TopStylists = () => {
                     <h3 className="text-[36px] leading-tight max-md:text-[24px]">
                       {stylist.name}
                     </h3>
-                    <p className="text-[20px] mb-5 max-md:text-[16px]">
+                    <p className="text-[20px] mb-1 max-md:text-[16px]">
                       {stylist.role}
                     </p>
                     <p className="text-[18px] mb-1 max-md:text-[14px]">
@@ -137,7 +143,7 @@ const TopStylists = () => {
                     <p className="text-[18px] mb-1 max-md:text-[14px]">
                       <u className="font-abel">Rating:</u> {stylist.rating} ⭐
                     </p>
-                    <p className="text-[18px] mb-2 max-md:text-[14px]">
+                    <p className="text-[18px] mb-1 max-md:text-[14px]">
                       <u className="font-abel">Sessions Available:</u>{" "}
                       {stylist.sessions}
                     </p>
