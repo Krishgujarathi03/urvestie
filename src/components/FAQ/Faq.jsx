@@ -36,7 +36,7 @@ const Faq = () => {
   return (
     <div className="relative max-w-[1200px] max-h-[1280px] mx-auto my-28 md:my-20 p-3 md:p-6 bg-white rounded-2xl shadow-lg w-full">
       <Link to="/">
-        <ArrowLeft className="h-[50px] w-[50px] absolute top-[0%] left-[8%] cursor-pointer" />
+        <ArrowLeft className="h-[40px] w-[40px] md:h-[50px] md:w-[50px] absolute top-[0%] left-[8%] cursor-pointer" />
       </Link>
       <h1
         className="

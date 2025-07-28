@@ -47,7 +47,7 @@ const FashionSlider = () => {
 
       <button
         ref={prevRef}
-        className={`custom-swiper-button-prev absolute top-1/2 md:top-[40%] left-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
+        className={`custom-swiper-button-prev absolute top-1/2 md:top-[37%] left-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
           activeIndex === 0 ? "hidden" : ""
         }`}
       >
@@ -56,7 +56,7 @@ const FashionSlider = () => {
 
       <button
         ref={nextRef}
-        className={`custom-swiper-button-next absolute top-1/2 md:top-[40%] right-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
+        className={`custom-swiper-button-next absolute top-1/2 md:top-[37%] right-[-1%] z-10 text-[#000000] bg-[#FAFAFA] w-[55px] h-[55px] rounded-full text-[28px] md:text-[35px] ${
           activeIndex === slides.length - 1 ? "hidden" : ""
         }`}
       >
